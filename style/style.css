@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0; 
+  font-family: "Poppins", serif;
+}
+
+body, .wrapper, .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  min-height: 100vh;
+  background: #275;
+}
+
+.wrapper {
+  width: 800px;
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 7px;
+  position: relative;
+}
+
+.wrapper .container {
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.container .hangman-column{
+  text-align: center;
+  font-weight: 600;
+  margin-right: 50px;
+  margin-left: 10px;
+}
+
+.container .hangman-column img {
+  width: 200px;
+  margin-bottom: 15px;
+}
+
+.container .details-column {
+  width: 100%;
+  text-align: center;
+}
+
+.details-column .word-list {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.details-column .word-list li {
+  margin-bottom: 40px;
+  width: 25px;
+  border-bottom: 2px solid #000;
+  text-transform: uppercase;
+  font-size: 22px;
+}
+
+.details-column .word-list li.guessed {
+  border: none;
+  margin-top: -30px;
+  font-size: 1.5rem;
+}
+
+.details-column .btn-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.details-column .btn-list button {
+  padding: 8px 0;
+  background: #275;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  width: calc(100% / 9 - 10px);
+  cursor: pointer;
+  transition: opacity 0.1s;
+}
+
+.details-column .btn-list button:hover {
+  opacity: 0.8;
+}
+
+.details-column .btn-list button:active {
+  opacity: 0.7;
+}
+
+.btn-list button.guessed {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.incorrect-guess {
+  font-size: 17px;
+  margin-top: 10px;
+}
+.incorrect-guess span {
+  color: rgb(255, 50, 50);
+}
+
+.hint, .incorrect-guess, .btn-list button {
+  font-size: 17px;
+}
+
+.game-over {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  border-radius: 7px;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background:rgba(0, 0, 0, 0.85);
+  font-size: 4.5rem;
+  color: #275;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.game-over img {
+  width: 100px;
+  margin-left: 30px;
+}
+
+.play-again {
+  margin-left: 30px;
+  padding: 10px 12px;
+  font-size: 16px;
+  color: white;
+  background: #275;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.play-again:hover {
+  background: rgba(40, 114, 70, 0.9);
+}
+
+.play-again:active {
+  background: rgba(40, 114, 70, 0.8)
+}
+
+.play-again.shuffle {
+  margin-top: 30px;
+}
+
+.game-over.game-over-render {
+  opacity: 1;
+  pointer-events:visible;
+}
+
+@media(max-width: 650px) {
+  .wrapper .container {
+    flex-wrap: wrap;
+    row-gap: 100px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container .hangman-column{
+    text-align: center;
+    font-weight: 600;
+    margin-left: 50px;
+  }
+
+  .wrapper {
+    border-radius: 7px;
+    margin: 30px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .game-over {
+    flex-direction: column;
+  }
+
+  .game-over img, .play-again {
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+}
